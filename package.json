@@ -1,0 +1,16 @@
+{
+  "name": "cypress-api",
+  "version": "1.0.0",
+  "description": "Cypress",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "cypress run --headed --browser chrome --spec cypress/e2e/demoblaze/login-test.cy.js",
+    "open": "cypress open"
+  },
+  "author": "Nur Khalik",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.7.0",
+    "cypress-mochawesome-reporter": "^3.3.0"
+  }
+}
