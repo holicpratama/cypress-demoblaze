@@ -58,10 +58,24 @@ describe('Demoblaze app login scenario', () =>  {
         // assert homescreen
         cy.get('#nameofuser').should('contain', '')
         cy.screenshot(); 
+        })
+
+        it('Tugas Log Out', () => {
+        cy.visit('https://www.demoblaze.com/index.html')
+
+        // click link text login
+        cy.get(`[data-target='#logInModal']`).click()
+        cy.get("[onclick='logIn()']").should('be.visible')
+        cy.wait(2000); 
+    
+        // fill username password
+        cy.get("#loginusername").type('wibowo.bullseye').should('have.value', 'wibowo.bullseye')
+        cy.get("#loginpassword").type('bullseye').should('have.value', 'bullseye'); 
+
+        // click button login
+        cy.get("[onclick='logIn()']").click(); 
 
         // click button logout
         cy.get("[onclick='logOut()']").click();
-        cy.screenshot(); 
-           
         })
         })
