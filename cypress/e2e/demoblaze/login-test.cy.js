@@ -1,5 +1,5 @@
 describe('Demoblaze app login scenario', () =>  {
-    it('successfully login using correct username password', () => {
+    it('Successfully login using correct username password', () => {
         cy.visit('http://www.demoblaze.com/index.html')
         // click link text login
         cy.get("[data-target='#logInModal']").click()
