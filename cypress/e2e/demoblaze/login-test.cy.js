@@ -20,30 +20,30 @@ describe('Demoblaze app login scenario', () =>  {
         it('Tugas Add To Cart', () => {
         cy.visit('https://www.demoblaze.com/index.html')
     
-        //click link text login
+        // click link text login
         cy.get(`[data-target='#logInModal']`).click()
         cy.get("[onclick='logIn()']").should('be.visible')
         cy.wait(2000)
         cy.screenshot(); 
     
-        //fill uname n pass
+        // fill username password
         cy.get("#loginusername").type('wibowo.bullseye').should('have.value', 'wibowo.bullseye')
         cy.get("#loginpassword").type('bullseye').should('have.value', 'bullseye')
         cy.screenshot(); 
 
-        //click button login
+        // click button login
         cy.get("[onclick='logIn()']").click()
         cy.screenshot(); 
 
-        //add to cart
+        // add to cart
         cy.get(".nav-link[href='index.html']").click()
-        cy.wait(5000)
+        cy.wait(2000)
         cy.get("#tbodyid > div:nth-of-type(1) .hrefch").click()
         cy.url().should("eq", "https://www.demoblaze.com/prod.html?idp_=1")
         cy.get(".btn-success").contains('Add to cart').click()
         cy.screenshot(); 
 
-        //crossceck list
+        // crossceck list
         cy.get("#cartur").click()
         cy.url().should("eq", "https://www.demoblaze.com/cart.html")
         cy.get("td:nth-of-type(2)").should('contain', 'Samsung galaxy s6')
